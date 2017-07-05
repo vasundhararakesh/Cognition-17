@@ -168,9 +168,9 @@
           data.push(trialdata);
       }     
     });
-  	$(document).on('keydown', function(e){
-    	if (e.which == 68){
-    		var dataJSON = JSON.stringify(data);
+		$(document).on('keydown', function(e){
+			if (e.which == 68){
+				var dataJSON = JSON.stringify(data);
     		var textToSaveAsBlob = new Blob([dataJSON], {type:"text/plain"});
     		var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
     		var downloadLink = document.createElement("a");
@@ -181,12 +181,12 @@
     		downloadLink.style.display = "none";
     		document.body.appendChild(downloadLink);
     		downloadLink.click();
-  		}
-		});
-		function destroyClickedElement(event){
-    	document.body.removeChild(event.target);
-		} 
-	</script>
+      }
+    });
+    function destroyClickedElement(event){
+      document.body.removeChild(event.target);
+    } 
+  </script>
 </head>
 <body onload="BeginDemo();">
   <div class = "container">
