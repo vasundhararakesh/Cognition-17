@@ -15,7 +15,7 @@ def submitDetails():
 		fil = open("data.txt", mode="a")
 		fil.write('\t'.join(data))
 		fil.close()
-		return render_template("task.html")
+		return render_template("index.html")
 	else:
 		return json.dumps({'html': '<span> Enter the required fields</span>'})
 
@@ -25,7 +25,6 @@ def showTask():
 
 @app.route("/logData", methods=["POST","GET"])
 def logData():
-	print("bui")
 	data = request.form['json']
 	with open("data_log.txt", mode="a") as f:
 		f.write("\n")
