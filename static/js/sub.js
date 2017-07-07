@@ -9,7 +9,7 @@ $(function(){
                 window.location.href="/startTrial";
 			},
 			err: function(error){
-				console.log("shit");
+				console.log("error");
 			}
 		});
 	});
