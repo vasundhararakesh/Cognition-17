@@ -23,6 +23,14 @@ def submitDetails():
 def showTask():
 	return render_template("task.html")
 
+@app.route("/finish")
+def showFinish():
+	return render_template("finish.html")
+
+@app.route("/return")
+def showReturn():
+	return render_template("index.html")
+
 @app.route("/logData", methods=["POST","GET"])
 def logData():
 	data = request.form['json']
