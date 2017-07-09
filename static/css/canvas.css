@@ -3,6 +3,9 @@ body{
   overflow: hidden;
   height: 100%;
 }
+.header{
+  border-bottom: 1px solid #e5e5e5;
+}
 .container{
   margin: auto auto;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
