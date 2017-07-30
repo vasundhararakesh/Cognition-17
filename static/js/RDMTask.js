@@ -13,7 +13,8 @@ var RDM = function(){
   $("#Correct").hide();
   $("#Incorrect").hide(); 
   startTime = (new Date()).getTime(); 
-  nextTrial();
+  //nextTrial();
+  nextStep();
   //console.log(coherence);
   paper.install(window);
   if (trial_num > 0) {
@@ -92,6 +93,6 @@ $(document).on('keydown', function(e){
     setTimeout(RDM,500);
     trialdata = [RL, response, coherence, RT];
     data.push(trialdata);
-    console.log(RT);
+    //console.log(RT);
   }     
 });
