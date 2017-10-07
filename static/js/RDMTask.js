@@ -77,7 +77,7 @@ var RDM = function(){
   })
 };
 $(document).on('keydown', function(e){
-  if ((e.which == 90 || e.which == 77) && trial_num < 3){ 
+  if ((e.which == 90 || e.which == 77) && trial_num < 360){ 
     var endTime = (new Date()).getTime();
     $("#Instructions").show();
     $("#Canvas").hide();
