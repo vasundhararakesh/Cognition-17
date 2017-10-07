@@ -8,23 +8,17 @@ var BeginDemo = function() {
   RDM();
 }
 var RDM = function(){
-  $("#Canvas").hide();
-  $("#Instructions").show();
-  $("#Correct").hide();
-  $("#Incorrect").hide(); 
-  $("#sub").hide();
-  startTime = (new Date()).getTime(); 
   //nextTrial();
-  nextStep();
-  paper.install(window);
-  if (trial_num > 0) {
-    console.log(paper.project.layers);
-  }
   $(document).on('keydown', function stimuli(e){
     if (e.which == 32 && trial_num < 360){
+    	paper.install(window);
       startTime = (new Date()).getTime();
+      nextStep();
       $("#Instructions").hide();
       $("#Canvas").show();
+      $("#Correct").hide();
+      $("#Incorrect").hide();
+      $("#sub").hide();
       var nums = [];
       for (var i = 0; i < count; i++) {
         nums.push(i);
@@ -52,10 +46,10 @@ var RDM = function(){
               var current = full[i][j];
               var item = project.activeLayer.children[current];
               if (j < (count/3)*coherence) {
-                item.position.x += (35)*RL;
+                item.position.x += (30)*RL;
                 item.position.y += 50*norm();
               } else {
-                item.position.x += ((1-coherence)/coherence)*40*norm();
+                item.position.x += ((1-coherence)/coherence)*35*norm();
                 item.position.y += 50*norm(); 
               }
               if (item.bounds.left > view.size.width)
@@ -93,7 +87,6 @@ $(document).on('keydown', function(e){
       if (RL == "-1"){ $("#Correct").show();} else { $("#Incorrect").show(); }
     }
     RT = endTime - startTime;
-    setTimeout(RDM,500);
     trialdata = [RL, response, coherence, RT];
     data.push(trialdata);
   }    
