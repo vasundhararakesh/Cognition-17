@@ -1,28 +1,27 @@
 $(function(){
   $("#Correct").hide();
   $("#Incorrect").hide();
+  $("#sub").hide();
 });
 var BeginDemo = function() {
   data.push(['RL','response', 'coherence', 'RT']);
   RDM();
 }
-var trial_num = [0];
 var RDM = function(){
   $("#Canvas").hide();
   $("#Instructions").show();
   $("#Correct").hide();
   $("#Incorrect").hide(); 
+  $("#sub").hide();
   startTime = (new Date()).getTime(); 
   //nextTrial();
   nextStep();
-  //console.log(coherence);
   paper.install(window);
   if (trial_num > 0) {
     console.log(paper.project.layers);
   }
-  trial_num += 1
   $(document).on('keydown', function stimuli(e){
-    if (e.which == 32){
+    if (e.which == 32 && trial_num < 360){
       startTime = (new Date()).getTime();
       $("#Instructions").hide();
       $("#Canvas").show();
@@ -73,14 +72,18 @@ var RDM = function(){
       }
       paper.view.draw();
     }
+    if (trial_num == 360)
+      $("#sub").show();
   })
 };
 $(document).on('keydown', function(e){
-  if (e.which == 90 || e.which == 77){ 
+  if ((e.which == 90 || e.which == 77) && trial_num < 3){ 
     var endTime = (new Date()).getTime();
     $("#Instructions").show();
     $("#Canvas").hide();
+    $("#sub").hide();
     paper.project.remove();
+    trial_num = trial_num + 1;
     even = 0;
     if (e.which == 77){
       response = 1;
@@ -93,6 +96,5 @@ $(document).on('keydown', function(e){
     setTimeout(RDM,500);
     trialdata = [RL, response, coherence, RT];
     data.push(trialdata);
-    //console.log(RT);
-  }     
+  }    
 });
