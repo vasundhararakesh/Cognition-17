@@ -51,6 +51,7 @@ var coherence_List = [.1, .2, .3, .4, .5, .6, .7, .8, .7, .6, .5, .4, .3, .2, .1
 var coherence = 0;
 var dirn = 1;
 var index = 0;
+var task = 0;
 function norm() {
 	var x = Math.random() + Math.random() + Math.random() + Math.random() + Math.random() + Math.random();
  	x = (x - 3)/3;

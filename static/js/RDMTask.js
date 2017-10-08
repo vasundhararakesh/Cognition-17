@@ -10,8 +10,9 @@ var BeginDemo = function() {
 var RDM = function(){
   //nextTrial();
   $(document).on('keydown', function stimuli(e){
-    if (e.which == 32 && trial_num < 360){
-    	paper.install(window);
+    if (e.which == 32 && trial_num < 360 && task == 0){
+      task = 1;
+      paper.install(window);
       startTime = (new Date()).getTime();
       nextStep();
       $("#Instructions").hide();
@@ -71,7 +72,7 @@ var RDM = function(){
   })
 };
 $(document).on('keydown', function(e){
-  if ((e.which == 90 || e.which == 77) && trial_num < 360){ 
+  if ((e.which == 90 || e.which == 77) && trial_num < 360 && task == 1){ 
     var endTime = (new Date()).getTime();
     $("#Instructions").show();
     $("#Canvas").hide();
@@ -89,5 +90,6 @@ $(document).on('keydown', function(e){
     RT = endTime - startTime;
     trialdata = [RL, response, coherence, RT];
     data.push(trialdata);
+    task = 0;
   }    
 });
