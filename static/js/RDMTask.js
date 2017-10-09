@@ -67,10 +67,11 @@ var RDM = function(){
       }
       paper.view.draw();
     }
-    if (trial_num == 360)
+    if (trial_num == 360){
       $("#Correct").hide();
       $("#Incorrect").hide();
       $("#sub").show();
+    }
   })
 };
 $(document).on('keydown', function(e){
