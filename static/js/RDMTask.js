@@ -68,6 +68,8 @@ var RDM = function(){
       paper.view.draw();
     }
     if (trial_num == 360)
+      $("#Correct").hide();
+      $("#Incorrect").hide();
       $("#sub").show();
   })
 };
