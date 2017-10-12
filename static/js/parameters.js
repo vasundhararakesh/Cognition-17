@@ -1,4 +1,4 @@
-var count = 240;
+var count = 390;
 var size = 5; 
 var RT; 
 var startTime;   

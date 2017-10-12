@@ -25,9 +25,9 @@ var RDM = function(){
         nums.push(i);
       }
       shuffling(nums);
-      var First = nums.slice(0, 80);
-      var Second = nums.slice(80, 160);
-      var Third = nums.slice(160, 240);
+      var First = nums.slice(0, 130);
+      var Second = nums.slice(130, 260);
+      var Third = nums.slice(260, 390);
       var full = [First,Second,Third]; 
       paper.setup('Canvas');
       var path = new Path.Circle([view.size.width*Math.random(),view.size.height*Math.random()], size);
@@ -47,11 +47,11 @@ var RDM = function(){
               var current = full[i][j];
               var item = project.activeLayer.children[current];
               if (j < (count/3)*coherence) {
-                item.position.x += (30)*RL;
+                item.position.x += 60*RL*(Math.random()+0.5);
                 item.position.y += 50*norm();
               } else {
-                item.position.x += ((1-coherence)/coherence)*35*norm();
-                item.position.y += 50*norm(); 
+                item.position.x += ((1-coherence)/coherence)*70*norm();
+                item.position.y += 50*Math.random()*Math.sign(norm()); 
               }
               if (item.bounds.left > view.size.width)
                 item.position.x = +item.bounds.width;
