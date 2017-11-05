@@ -2,6 +2,7 @@ $(function(){
   $("#Correct").hide();
   $("#Incorrect").hide();
   $("#sub").hide();
+  $("Canvas").hide();
 });
 var BeginDemo = function() {
   data.push(['RL','response', 'coherence', 'RT']);
@@ -10,7 +11,7 @@ var BeginDemo = function() {
 var RDM = function(){
   //nextTrial();
   $(document).on('keydown', function stimuli(e){
-    if (e.which == 32 && trial_num < 360 && task == 0){
+    if (e.which == 32 && trial_num < 161 && task == 0){
       task = 1;
       paper.install(window);
       startTime = (new Date()).getTime();
@@ -25,13 +26,13 @@ var RDM = function(){
         nums.push(i);
       }
       shuffling(nums);
-      var First = nums.slice(0, 130);
-      var Second = nums.slice(130, 260);
-      var Third = nums.slice(260, 390);
-      var full = [First,Second,Third]; 
+      var First = nums.slice(0, 100);
+      var Second = nums.slice(100, 200);
+      var Third = nums.slice(200, 300);
+      var full = [First,Second,Third];
       paper.setup('Canvas');
       var path = new Path.Circle([view.size.width*Math.random(),view.size.height*Math.random()], size);
-      path.fillColor = 'black';
+      path.fillColor = 'white';
       var symbol = new Symbol(path);
       for (var i = 0; i < count; i++) {
         var center = [view.size.width*Math.random(),view.size.height*Math.random()];
@@ -67,7 +68,7 @@ var RDM = function(){
       }
       paper.view.draw();
     }
-    if (trial_num == 360){
+    if (trial_num == 161){
       $("#Correct").hide();
       $("#Incorrect").hide();
       $("#sub").show();
@@ -75,24 +76,45 @@ var RDM = function(){
   })
 };
 $(document).on('keydown', function(e){
-  if ((e.which == 90 || e.which == 77) && trial_num < 360 && task == 1){ 
+  if ((e.which == 90 || e.which == 77) && trial_num < 161 && task == 1){ 
     var endTime = (new Date()).getTime();
     $("#Instructions").show();
     $("#Canvas").hide();
     $("#sub").hide();
+    $("#Correct").hide();
+    $("#Incorrect").hide();
     paper.project.remove();
     trial_num = trial_num + 1;
     even = 0;
     if (e.which == 77){
       response = 1;
-      if (RL == "1"){ $("#Correct").show();} else { $("#Incorrect").show(); }
+      if (RL == "1"){ 
+        $("#Correct").show();
+        trial_corr = trial_corr + 1;
+        score = score + 10*Math.pow(2, Math.floor(trial_corr/3));
+      } else if (RL == "-1"){ 
+        $("#Incorrect").show();
+        trial_corr = 0;
+      }
     } else {
       response = -1;
-      if (RL == "-1"){ $("#Correct").show();} else { $("#Incorrect").show(); }
+      if (RL == "-1"){ 
+        $("#Correct").show();
+        trial_corr = trial_corr + 1;
+        score = score + 10*Math.pow(2, Math.floor(trial_corr/3));
+      } else if (RL == "1"){ 
+        $("#Incorrect").show(); 
+        trial_corr = 0; 
+      }
     }
+    $("#showscore").html(score)
     RT = endTime - startTime;
     trialdata = [RL, response, coherence, RT];
     data.push(trialdata);
     task = 0;
+    if(barwidth < 100){
+        barwidth = barwidth + 100/161;
+        $(".progress-bar-success").css("width", barwidth + "%");
+    }
   }    
 });

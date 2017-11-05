@@ -11,9 +11,10 @@ body{
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .response{
-  margin-top: 250px;
+  margin-top: 150px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 200%;
+  font-size: 40px;
+  color: #777;
 }
 .Instructions{
   font-size:32px;
@@ -27,5 +28,5 @@ p{
   align: center;
   font-size: 80%;
   font-style: italic;
-  padding: 2cm;
+  padding: 1cm;
 }

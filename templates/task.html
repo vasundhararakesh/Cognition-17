@@ -23,17 +23,21 @@
         <h1 style = "color: #777; padding: 0.5cm;" align="left">Random Dot Motion Task</h1>
       </div>
       <br>
-      <div style="padding: 1cm;" class="jumbotron" id="Instructions" align="center">
+      <div class="progress">
+        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div style="padding: 0.5cm;" class="jumbotron" id="Instructions" align="center">
         <h4>To begin a trial, press the space bar. <br>To indicate that the dots are moving to the right, press the 'M' key, and to indicate that dots are moving to the left, press the 'Z' key. <br> It may help to keep a finger of your left hand on the 'Z' key and a finger of your right hand on the 'M' key. <br> Please ask the experimenter if anything seems unclear. </h4>
       </div>
       <p class = "logo" align="center">
-        <canvas class="StimElement" id="Canvas" width = 1100 height = 700 style="background:white"></canvas>
+        <canvas class="StimElement" id="Canvas" width = 1100 height = 700 style="background:black"></canvas>
       </p>
       <div align="center" id = "Correct" class = "response"> 
-        <h1 style = "color: #00e600;">Correct!</h1>
+        <h1 style = "color: #00e600; font-size: 60px">Correct!</h1>
+        Your score is <span id="showscore">{}</span> 
       </div>
       <div align="center" id = "Incorrect" class = "response">  
-        <h1 style = "color: #e60000;">Incorrect</h1>
+        <h1 style = "color: #e60000; font-size: 60px">Incorrect</h> 
       </div>
       <div align="center" id = "sub" class="response">
         <h1 style="color: #696969">Thank you! <br> Please press D to submit.</h1>
