@@ -52,12 +52,12 @@ function shuffling(array) {
 }
 function nextOne(){
   RL = shuffling(RL_List)[0];
-  coherence = 0.7*(coherence_List[index]);
+  coherence = coherence_List[index];
   index += 1;
 }
 function nextStep(){
   RL = shuffling(RL_List)[0];
-  coherence = 0.7*coherence_List[index];
+  coherence = coherence_List[index];
   index += dirn;
   if (index >= coherence_List.length - 1)
     dirn = -1;
@@ -66,5 +66,5 @@ function nextStep(){
 }
 function nextTrial() {
   RL = shuffling(RL_List)[0];
-  coherence = 0.7*shuffling(coherence_List)[1];
+  coherence = shuffling(coherence_List)[1];
 }
