@@ -9,16 +9,14 @@ def main():
 def submitDetails():
 	name = request.form['inputName']
 	email = request.form['inputEmail']
-	number = request.form['inputContact']
-	data = [name, email, number]
-	if name and email and number:
-		fil = open("data.txt", mode="a")
-		fil.write('\t'.join(data))
-		fil.close()
-		return render_template("index.html")
-	else:
-		return json.dumps({'html': '<span> Enter the required fields</span>'})
-
+	age = request.form['inputAge']
+	sex = request.form['gender']
+	data = [name, email, age, gender]
+	fil = open("data.txt", mode="a")
+	fil.write('\n\t'.join(data))
+	fil.close()
+	return render_template("index.html")
+	
 @app.route("/startTrial")
 def showTask():
 	return render_template("task.html")
