@@ -11,9 +11,10 @@ def submitDetails():
 	email = request.form['inputEmail']
 	age = request.form['inputAge']
 	sex = request.form['gender']
-	data = [name, email, age, gender]
+	data = [name, email, age, sex]
 	fil = open("data.txt", mode="a")
-	fil.write('\n\t'.join(data))
+	fil.write('\t'.join(data))
+	fil.write('\n')
 	fil.close()
 	return render_template("index.html")
 	
@@ -38,4 +39,4 @@ def logData():
 	return render_template("task.html")
 
 if __name__ =="__main__":
-	app.run(host='0.0.0.0', debug=True, port=5000)
+	app.run(host='0.0.0.0', debug=True, port=3000)
