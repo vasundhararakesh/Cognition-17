@@ -4,42 +4,43 @@
     <meta charset="utf-8"/>
     <title>Random Dot Motion Task</title>
     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../static/css/canvas.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="../static/css/canvas.css" rel="stylesheet">
     <script src="../static/js/jquery-1.11.2.js"></script>
-    <script src="../static/js/sub.js"></script>
+    <script src="../static/js/indexsubmit.js"></script>
   </head>
   <body>
-    <div class="container" style="max-width: 730px;">
+    <div class="container" style="max-width: 700px;">
       <div class="header">
         <h1 style = "color: #777; padding: 0.5cm;" align="left">Random Dot Motion Task</h1>
       </div>
       <br>
       <div class="jumbotron">
-        <h4>In this experiment, you will see several dots moving about on the screen. Your goal is to identify if the overall pattern of dots is moving to the left or the right. You will do this several times, for dot displays with different movement patterns. You can take as long as you like to decide the direction of motion within each trial, and as long as you like to rest up between two trials. We don't expect the experiment to take longer than 15 minutes to complete. <br><br> For a correct response, you will get 10 points. This will keep increasing if you get a streak of correct responses, and reset to 10 points if you get an incorrect response. You can track your progress in the progress bar at the top of the screen. <br><br> Kindly enter the following details and press the submit button to proceed to the experiment.</h4>
-        <form style = "padding: 0.5cm;" class="form-signin" align="center">
-          <div>
-            <input type="name" class="form-control" name="inputName" placeholder="Name" autofocus>
-            <input type="email" class="form-control" name="inputEmail" placeholder="Email ID">
-            <input type="number" class="form-control" name="inputAge" placeholder="Age">
-          </div>
-          <div align="center">
-            <label>Gender</label>
-            <br>
-            <label class="radio-inline">
-              <input type="radio" id="inputGender" name="gender" value="M"> Male
-            </label>
-            <label class="radio-inline">
-              <input type="radio" id="inputGender" name="gender" value="F"> Female
-            </label>
-            <label class="radio-inline">
-              <input type="radio" id="inputGender" name="gender" value="O"> Other
-            </label>
-          </div>
-          <br>
-          <div align="center">
-            <button id="btnSignUp" class="btn btn-lg btn-primary btn-block" type="button" style="max-width: 150px;">Submit</button>
-      	  </div>
+        <h4 style="padding-left: 0.5cm; padding-right:0.5cm">In this experiment, you will see several dots moving about on the screen. Your goal is to identify if the overall pattern of dots is moving to the left or the right. You will do this several times, for dot displays with different movement patterns. You can take as long as you like to decide the direction of motion within each trial, and as long as you like to rest up between two trials. We don't expect the experiment to take longer than 25 minutes to complete. <br><br> Kindly enter the following details and press the submit button to proceed to the experiment.</h4>
+        <form style = "padding: 0.5cm; padding-bottom: 0cm" class="form-signin" align="center">
+        <div class="form-group">
+        	<input type="name" name="Name" id="Name" class="form-control" placeholder="Name" autofocus>
+        </div>
+        <div class="form-group">
+        	<input type="name" name="RollNo" id="RollNo" class="form-control" placeholder="Roll Number">
+        </div>
+        <div class="form-group">
+        	<input type="number" name="Age" id="Age" class="form-control" placeholder="Age">
+        </div>
+        <div class="form-group" align="center">
+          <label class="radio-inline">
+          	<input type="radio" name="gender" value="Female">Female
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="gender" value="Male">Male
+          </label>
+          <label class="radio-inline">
+          	<input type="radio" name="gender" value="Other">Other
+          </label>
+        </div>
+        <div class="form-group" align = "center">
+          <button id="btnSignUp" class="btn btn-lg btn-primary btn-block" type="button" style="max-width: 150px;">Submit</button>
+      	</div>
         </form>
       </div>
     </div>

@@ -1,7 +1,7 @@
 $(function(){
 	$('#btnSignUp').click(function(){
 		$.ajax({
-			url: '/submit',
+			url: '/details',
 			data: $('form').serialize(),
 			type: 'POST',
 			success: function(response){
